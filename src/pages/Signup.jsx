@@ -70,7 +70,7 @@ const Signup = () => {
     <>
       <div className="flex flex-col justify-between">
         <Navbar />
-        <div className="mt-20 justify-self-center container w-9/12">
+        <div className="mt-20 justify-self-center container w-11/12 md:w-9/12">
           <form onSubmit={handleSignup} className="flex flex-col rounded-lg">
             <h2 className="text-2xl font-bold text-zinc-800 mb-6 text-center heading1 uppercase">
               Sign Up
