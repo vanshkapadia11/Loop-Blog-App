@@ -25,61 +25,65 @@ const Dashboard = () => {
   }, [isDark]);
   return (
     <>
-      <Navbar />
-      <section className="flex justify-between flex-col container">
-        <div className="flex flex-col mt-10">
-          <div className="">
-            {user ? (
-              <>
-                <div className="">
+      <div className="h-screen">
+        <Navbar />
+        <div className="flex flex-col justify-between h-full">
+          <section className="flex justify-between flex-col container">
+            <div className="flex flex-col mt-10">
+              <div className="">
+                {user ? (
+                  <>
+                    <div className="">
+                      <div className="">
+                        <h2 className="font-semibold text-xl uppercase flex items-center space-x-3">
+                          <span className="material-symbols-rounded text-green-600 mr-2">
+                            stat_2
+                          </span>
+                          Welcome, {user.displayName}
+                        </h2>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <h2 className="font-semibold text-xl uppercase">
+                    Bro Who Are You ???
+                  </h2>
+                )}
+              </div>
+              <div className="mt-10 flex flex-col">
+                <div className="flex space-x-3 md:w-5/12 w-full">
+                  <button
+                    className="w-7/12 md:w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
+                    onClick={() => navigate("/CreatePost")}
+                  >
+                    CREATE NEW POST
+                  </button>
+                  <button
+                    className="w-9/12 md:w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
+                    onClick={() => navigate("/MyPosts")}
+                  >
+                    Check All Your Posts
+                  </button>
+                </div>
+                <div className="mt-16">
                   <div className="">
-                    <h2 className="font-semibold text-xl uppercase flex items-center space-x-3">
-                      <span className="material-symbols-rounded text-green-600 mr-2">
-                        stat_2
+                    <h2 className="text-3xl font-semibold heading1 uppercase flex items-center">
+                      posts
+                      <span className="material-symbols-rounded ml-3 text-2xl font-semibold">
+                        arrow_outward
                       </span>
-                      Welcome, {user.displayName}
                     </h2>
                   </div>
+                  <div className="mt-10">
+                    <Home />
+                  </div>
                 </div>
-              </>
-            ) : (
-              <h2 className="font-semibold text-xl uppercase">
-                Bro Who Are You ???
-              </h2>
-            )}
-          </div>
-          <div className="mt-10 flex flex-col">
-            <div className="flex space-x-3 md:w-5/12 w-full">
-              <button
-                className="w-7/12 md:w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
-                onClick={() => navigate("/CreatePost")}
-              >
-                CREATE NEW POST
-              </button>
-              <button
-                className="w-9/12 md:w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
-                onClick={() => navigate("/MyPosts")}
-              >
-                Check All Your Posts
-              </button>
-            </div>
-            <div className="mt-16">
-              <div className="">
-                <h2 className="text-3xl font-semibold heading1 uppercase flex items-center">
-                  posts
-                  <span className="material-symbols-rounded ml-3 text-2xl font-semibold">
-                    arrow_outward
-                  </span>
-                </h2>
-              </div>
-              <div className="mt-10">
-                <Home />
               </div>
             </div>
-          </div>
+          </section>
+          <Footer />
         </div>
-      </section>
-      <Footer />
+      </div>
     </>
   );
 };

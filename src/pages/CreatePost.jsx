@@ -47,79 +47,84 @@ const CreatePost = () => {
 
   return (
     <>
-      <Navbar />
-      <section className="container">
-        <div className="mt-10">
-          <div className="container">
-            <h2 className="text-2xl font-semibold uppercase flex items-center">
-              Create A Post{" "}
-              <span className="material-symbols-rounded ml-3 text-2xl font-semibold">
-                arrow_outward
-              </span>
-            </h2>
+      <div className="h-screen flex flex-col justify-between">
+        <Navbar />
+        <section className="container">
+          <div className="mt-10">
+            <div className="container">
+              <h2 className="text-2xl font-semibold uppercase flex items-center">
+                Create A Post{" "}
+                <span className="material-symbols-rounded ml-3 text-2xl font-semibold">
+                  arrow_outward
+                </span>
+              </h2>
+            </div>
+            <div className="mt-20 justify-self-center container md:w-11/12 w-full">
+              <form
+                className="flex flex-col rounded-lg"
+                onSubmit={handleSubmit}
+              >
+                {error && (
+                  <p className="text-red-400 text-sm mb-4 font-semibold uppercase">
+                    {error}
+                  </p>
+                )}
+
+                <label
+                  htmlFor="title"
+                  className="text-xs font-semibold mb-2 uppercase"
+                >
+                  Enter Your post title
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="w-full p-3 mb-4 border rounded outline-none text-sm font-semibold dark:bg-[#242424] dark:ring-[#2a2a2a] ring-1 ring-[#e8e8e8] ring-inset"
+                  required
+                />
+
+                <label
+                  htmlFor="desc"
+                  className="text-xs font-semibold mb-2 uppercase"
+                >
+                  Enter Your post desc
+                </label>
+                <textarea
+                  id="desc"
+                  value={desc}
+                  onChange={(e) => setDesc(e.target.value)}
+                  className="w-full p-3 mb-6 border rounded outline-none text-sm font-semibold dark:bg-[#242424] dark:ring-[#2a2a2a] ring-1 ring-[#e8e8e8] ring-inset"
+                  required
+                />
+
+                <label
+                  htmlFor="details"
+                  className="text-xs font-semibold mb-2 uppercase"
+                >
+                  Enter Your post summary of post
+                </label>
+                <textarea
+                  id="details"
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
+                  className="w-full p-3 mb-6 border rounded outline-none text-sm font-semibold dark:bg-[#242424] dark:ring-[#2a2a2a] ring-1 ring-[#e8e8e8] ring-inset"
+                  required
+                />
+
+                <button
+                  type="submit"
+                  className="md:w-2/12 w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
+                >
+                  CREATE post
+                </button>
+              </form>
+            </div>
           </div>
-          <div className="mt-20 justify-self-center container md:w-11/12 w-full">
-            <form className="flex flex-col rounded-lg" onSubmit={handleSubmit}>
-              {error && (
-                <p className="text-red-400 text-sm mb-4 font-semibold uppercase">
-                  {error}
-                </p>
-              )}
-
-              <label
-                htmlFor="title"
-                className="text-xs font-semibold mb-2 uppercase"
-              >
-                Enter Your post title
-              </label>
-              <input
-                type="text"
-                id="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                className="w-full p-3 mb-4 border rounded outline-none text-sm font-semibold dark:bg-[#242424] dark:ring-[#2a2a2a] ring-1 ring-[#e8e8e8] ring-inset"
-                required
-              />
-
-              <label
-                htmlFor="desc"
-                className="text-xs font-semibold mb-2 uppercase"
-              >
-                Enter Your post desc
-              </label>
-              <textarea
-                id="desc"
-                value={desc}
-                onChange={(e) => setDesc(e.target.value)}
-                className="w-full p-3 mb-6 border rounded outline-none text-sm font-semibold dark:bg-[#242424] dark:ring-[#2a2a2a] ring-1 ring-[#e8e8e8] ring-inset"
-                required
-              />
-
-              <label
-                htmlFor="details"
-                className="text-xs font-semibold mb-2 uppercase"
-              >
-                Enter Your post summary of post
-              </label>
-              <textarea
-                id="details"
-                value={details}
-                onChange={(e) => setDetails(e.target.value)}
-                className="w-full p-3 mb-6 border rounded outline-none text-sm font-semibold dark:bg-[#242424] dark:ring-[#2a2a2a] ring-1 ring-[#e8e8e8] ring-inset"
-                required
-              />
-
-              <button
-                type="submit"
-                className="md:w-2/12 w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
-              >
-                CREATE post
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-      <Footer />
+        </section>
+        <Footer />
+      </div>
     </>
   );
 };

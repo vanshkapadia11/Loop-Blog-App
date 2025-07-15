@@ -32,7 +32,7 @@ const Navbar = () => {
   }, [isDark]);
   return (
     <>
-      <section className="container2">
+      <section className="container">
         <div className="flex justify-between items-center py-6 px-3">
           <div className="">
             <span className="material-symbols-rounded text-2xl font-semibold">
