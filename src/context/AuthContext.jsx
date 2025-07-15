@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
         const userDoc = await getDoc(doc(db, "users", currentUser.uid));
         if (userDoc.exists()) {
           setUser({ ...currentUser, ...userDoc.data() });
-          console.log(currentUser, userDoc.data());
+          // console.log(currentUser, userDoc.data());
         } else {
           setUser(currentUser);
         }

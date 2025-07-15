@@ -47,10 +47,10 @@ const CreatePost = () => {
 
   return (
     <>
+      <Navbar />
       <section className="container">
-        <Navbar />
-        <div className="container1 mt-10">
-          <div>
+        <div className="mt-10">
+          <div className="container">
             <h2 className="text-2xl font-semibold uppercase flex items-center">
               Create A Post{" "}
               <span className="material-symbols-rounded ml-3 text-2xl font-semibold">
@@ -58,7 +58,7 @@ const CreatePost = () => {
               </span>
             </h2>
           </div>
-          <div className="mt-20 justify-self-center container w-11/12">
+          <div className="mt-20 justify-self-center container md:w-11/12 w-full">
             <form className="flex flex-col rounded-lg" onSubmit={handleSubmit}>
               {error && (
                 <p className="text-red-400 text-sm mb-4 font-semibold uppercase">
@@ -111,7 +111,7 @@ const CreatePost = () => {
 
               <button
                 type="submit"
-                className="w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
+                className="md:w-2/12 w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
               >
                 CREATE post
               </button>

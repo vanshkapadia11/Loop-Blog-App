@@ -6,11 +6,15 @@ import { db } from "../firebase"; // or wherever your db is exported
 import { useEffect } from "react";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { deleteDoc } from "firebase/firestore";
 
 const PostDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
+  const { user } = useAuth(); // current logged in user
+
   useEffect(() => {
     const getPost = async () => {
       try {
@@ -18,8 +22,11 @@ const PostDetails = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          console.log("Document data:", docSnap.data());
+          // console.log("Document data:", docSnap.data());
           setPost(docSnap.data()); // or however you're storing it
+          // console.log("Fetched post:", docSnap.data());
+          console.log("Post Author UID:", docSnap.data()?.author?.uid);
+          console.log("Current User UID:", user?.uid);
         } else {
           console.log("No such document!");
         }
@@ -30,13 +37,12 @@ const PostDetails = () => {
 
     getPost();
   }, [id]);
+
   return (
     <>
+      <Navbar />
       <section className="container">
-        <div className="">
-          <Navbar />
-        </div>
-        <div className="mt-10 container1">
+        <div className="mt-10">
           <div className="">
             <h2 className="text-3xl font-semibold uppercase flex items-center">
               post details{" "}
@@ -45,7 +51,7 @@ const PostDetails = () => {
               </span>
             </h2>
           </div>
-          <div className="mt-10 py-20 container2 uppercase">
+          <div className="mt-2 py-16 container2 uppercase">
             {post && (
               <div className="">
                 <h2 className="text-2xl font-semibold">{post.title}</h2>
@@ -54,7 +60,8 @@ const PostDetails = () => {
                   uploaded by:{" "}
                   <span className="text-gray-700">{post.author.email}</span>
                 </p>
-                <p className="font-medium text-md mt-10">{post.details}</p>
+                <hr />
+                <p className="font-medium text-md pt-8 mt-2">{post.details}</p>
               </div>
             )}
           </div>

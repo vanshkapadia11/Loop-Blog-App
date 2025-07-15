@@ -24,11 +24,10 @@ const Dashboard = () => {
     }
   }, [isDark]);
   return (
-    <div>
-      <section className="container">
-        <Navbar />
-
-        <div className="flex flex-col mt-10 container1">
+    <>
+      <Navbar />
+      <section className="flex justify-between flex-col container">
+        <div className="flex flex-col mt-10">
           <div className="">
             {user ? (
               <>
@@ -49,13 +48,19 @@ const Dashboard = () => {
               </h2>
             )}
           </div>
-          <div className="container mt-10 flex flex-col">
-            <div className="">
+          <div className="mt-10 flex flex-col">
+            <div className="flex space-x-3 md:w-5/12 w-full">
               <button
-                className="w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
+                className="w-7/12 md:w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
                 onClick={() => navigate("/CreatePost")}
               >
                 CREATE NEW POST
+              </button>
+              <button
+                className="w-9/12 md:w-1/2 justify-self-center py-3 rounded-lg ring-1 ring-inset backdrop-blur-sm shadow-xl font-semibold text-sm ring-[#efefef] uppercase hover:scale-105 duration-500 transition-all"
+                onClick={() => navigate("/MyPosts")}
+              >
+                Check All Your Posts
               </button>
             </div>
             <div className="mt-16">
@@ -75,7 +80,7 @@ const Dashboard = () => {
         </div>
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 
