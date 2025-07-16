@@ -58,9 +58,10 @@ const PostDetails = () => {
                 <p className="font-medium text-md mt-3">{post.desc}</p>
                 <p className="font-medium text-xs mt-3">
                   uploaded by:{" "}
-                  <span className="text-gray-700">{post.author.email}</span>
+                  <span className="text-gray-700 dark:text-gray-200">
+                    {post.author.email}
+                  </span>
                 </p>
-                <hr />
                 <p className="font-medium text-md pt-8 mt-2">{post.details}</p>
               </div>
             )}

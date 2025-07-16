@@ -34,7 +34,6 @@ const Signup = () => {
         photoURL: "", // optional
       });
       await user.reload(); // ⬅️ this forces Firebase to re-fetch the latest profile
-      console.log("Display Name:", user.displayName);
       navigate("/dashboard"); // or any page
 
       // 3. ✅ Save to Firestore

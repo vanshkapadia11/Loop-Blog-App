@@ -21,7 +21,6 @@ const Home = () => {
       }));
 
       setPosts(postsData);
-      console.log(postsData);
       setLoading(false);
     } catch (err) {
       console.error("Error fetching posts:", err);
